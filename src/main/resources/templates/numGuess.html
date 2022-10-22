@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div th:if="${a eq 1}">-->
+<!--    hello-->
+<!--</div>-->
+<!--<div th:if="${a ne 1}">-->
+<!--    hi-->
+<!--</div>-->
+<!--<% if (numguess.getSuccess()) { %>-->
+<div th:if="${numguess.getSuccess()}">
+    <h1>恭喜你猜对了</h1>
+    Congratulations! You got it.
+    And after just <a th:text="${numguess.getNumGuesses()}"/> tries.<p>
+
+
+    Care to <a href="numguess">try again</a>?
+</div>
+<!--<% } else if (numguess.getNumGuesses() == 0) { %>-->
+<div th:if="${numguess.getSuccess() ne true}">
+    <div th:if="${numguess.getNumGuesses() eq 0}">
+        Welcome to the Number Guess game.<p>
+
+        I'm thinking of a number between 1 and 100.
+        <p>
+
+        <form method=get>
+            What's your guess? <input type=text name=guess>
+            <input type=submit value="Submit">
+        </form>
+
+        <!--<% } else { %>-->
+    </div>
+</div>
+<div th:if="${numguess.getSuccess() ne true}">
+    <div th:if="${numguess.getNumGuesses() ne 0}">
+        Good guess, but nope. Try <b><a th:text="${numguess.getHint()}"/></b>.
+
+        You have made <a th:text="${numguess.getNumGuesses()}"/> guesses.<p>
+
+        I'm thinking of a number between 1 and 100.
+        <p>
+
+        <form method=get>
+            What's your guess? <input type=text name=guess>
+            <input type=submit value="Submit">
+        </form>
+    </div>
+</div>
+<!--<% } %>-->
+</body>
+</html>
