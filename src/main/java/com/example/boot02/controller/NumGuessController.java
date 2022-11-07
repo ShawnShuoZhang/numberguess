@@ -8,11 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
+
 @Controller
 public class NumGuessController {
 
     // NumberGuessBean numberGuessBean = new NumberGuessBean();
-    @Autowired
+    @Resource
     NumGuessService numberGuessService;
 
     @GetMapping("/numguess")
